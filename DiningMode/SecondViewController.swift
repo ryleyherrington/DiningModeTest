@@ -1,28 +1,16 @@
 //
-//  ViewController.swift
+//  SecondViewController.swift
 //  DiningMode
 //
-//  Created by Olivier Larivain on 12/2/16.
-//  Copyright © 2016 OpenTable, Inc. All rights reserved.
+//  Created by Ryley Herrington on 3/28/17.
+//  Copyright © 2017 OpenTable, Inc. All rights reserved.
 //
 
 import UIKit
 
-import AFNetworking
-
-enum JSONFileType {
-    case twoDishes
-    case fullRes
-    case partialRes
-}
-
-class ViewController: UIViewController {
+class SecondViewController: UIViewController {
     
     var disableInteractivePlayerTransitioning = false
-    
-    @IBOutlet weak var twoButton: UIButton!
-    @IBOutlet weak var fullButton: UIButton!
-    @IBOutlet weak var partialButton: UIButton!
     
     var bannerView: BannerView!
     var reservationVC: ReservationCollectionViewController!
@@ -35,18 +23,46 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // just to make sure everything links fine
-        AFHTTPSessionManager(baseURL: nil).get("", parameters: nil, progress: nil, success: nil, failure: nil)
-        
         //choose default reservation
         chooseData(type: .fullRes)
-        updateButtons(type: .fullRes)
         
         buildBanner()
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(SecondViewController.updateReservation),
+                                               name: NSNotification.Name(rawValue: "updatedReservation"),
+                                               object: nil)
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    func updateReservation(notification: NSNotification){
+        let resource = UserDefaults.standard.object(forKey: "updatedRes")
+        
+        //So this full versus partial wouldn't happen and we would obviously
+        //save the reservation and not continually create a reservation but
+        //it works for a small sample on a time crunch
+        do {
+            if let file = Bundle.main.path(forResource: resource as! String?, ofType: "json") {
+                let data = try NSData(contentsOfFile: file, options: .mappedIfSafe)
+                let json = try JSONSerialization.jsonObject(with: data as Data, options: [])
+                if let object = json as? [String: Any] {
+                    self.currentReservation = ReservationAssembler().createReservation(object)!
+                    if reservationVC != nil {
+                        reservationVC.reservation = self.currentReservation
+                    }
+                } else {
+                    debugPrint("JSON is invalid")
+                }
+            } else {
+                debugPrint("No File Found")
+            }
+        } catch {
+            debugPrint(error.localizedDescription)
+        }
+        
     }
     
     func buildBanner() {
@@ -62,7 +78,7 @@ class ViewController: UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         reservationVC = storyboard.instantiateViewController(withIdentifier: "ReservationVCId") as! ReservationCollectionViewController
         
-        reservationVC.rootVC = self
+        reservationVC.parentVC = self
         reservationVC.reservation = self.currentReservation
         reservationVC.transitioningDelegate = self
         reservationVC.modalPresentationStyle = .fullScreen
@@ -82,8 +98,6 @@ class ViewController: UIViewController {
     
     //Network call usually but I'll do the local JSON file as that instead
     func chooseData(type:JSONFileType){
-
-
         var resource = "FullReservation"
         switch type {
         case .twoDishes:
@@ -91,16 +105,13 @@ class ViewController: UIViewController {
             
         case .fullRes:
             resource = "FullReservation"
-        
+            
         case .partialRes:
             resource = "PartialReservation"
         }
         
-        UserDefaults.standard.set(resource, forKey: "updatedRes")
-        NotificationCenter.default.post(name: Notification.Name("updatedReservation"), object: nil)
-        
-        //So this full versus partial wouldn't happen and we would obviously 
-        //save the reservation and not continually create a reservation but 
+        //So this full versus partial wouldn't happen and we would obviously
+        //save the reservation and not continually create a reservation but
         //it works for a small sample on a time crunch
         do {
             if let file = Bundle.main.path(forResource: resource, ofType: "json") {
@@ -123,43 +134,10 @@ class ViewController: UIViewController {
         
     }
     
-    // MARK: Button Functions
-    @IBAction func twoDishesTouched(_ sender: Any) {
-        chooseData(type: .twoDishes)
-        updateButtons(type: .twoDishes)
-    }
-    
-    @IBAction func fullResTouched(_ sender: Any) {
-        chooseData(type: .fullRes)
-        updateButtons(type: .fullRes)
-    }
-    
-    @IBAction func partialResTouched(_ sender: Any) {
-        chooseData(type: .partialRes)
-        updateButtons(type: .partialRes)
-    }
-    
-    func updateButtons(type:JSONFileType){
-        switch type {
-        case .twoDishes:
-            self.twoButton.setTitle("✅ 2 Dishes", for: .normal)
-            self.fullButton.setTitle("Full Reservation", for: .normal)
-            self.partialButton.setTitle("Partial Reservation", for: .normal)
-            
-        case .fullRes:
-            self.twoButton.setTitle("2 Dishes", for: .normal)
-            self.fullButton.setTitle("✅ Full Reservation", for: .normal)
-            self.partialButton.setTitle("Partial Reservation", for: .normal)
-            
-        case .partialRes:
-            self.twoButton.setTitle("2 Dishes", for: .normal)
-            self.fullButton.setTitle("Full Reservation", for: .normal)
-            self.partialButton.setTitle("✅ Partial Reservation", for: .normal)
-        }
-    }
+   
 }
 
-extension ViewController: UIViewControllerTransitioningDelegate {
+extension SecondViewController: UIViewControllerTransitioningDelegate {
     
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         let animator = BannerAnimator()
@@ -187,4 +165,5 @@ extension ViewController: UIViewControllerTransitioningDelegate {
         return dismissInteractor
     }
 }
+
 
