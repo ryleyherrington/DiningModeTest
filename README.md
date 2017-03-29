@@ -1,40 +1,23 @@
-Hi, and welcome to your OpenTable assignment.
+# OpenTable Test
+This ws a little bit rough for me since I was out of town until Sunday afternoon and then I flew to Seattle Monday morning and then back tonight. But that gave me a few hours on a plane and a late night, but hopefully it does what was asked. 
 
-The goal of this exercise is to test a bit your UIKit skills. Your task is do "our" job, and build our app's upcoming reservation view, also known as "dining mode" internally.
-There are 2 aspects to this:
+## Explanation
+So it's fairly self explanatory when you see the project. I made some choices that were hard to overcome since I was on such a little time crunch. This is also my 3rd take home test in 7 days. So things are becoming a little hazy since I have a full time job still. 
 
-- first, the "dining mode banner". That's an apple music-like banner, that inserts itself above the tab bar, and can be interactively pulled
-- second, the dining mode itself. This is a "card" oriented view of your upcoming reservation.
+On the other hand, I wasn't able to explain this in person so here we go. I've never tackled this sort of bottom banner type of thing before. I looked up different types of methods to do it; method swizzling so I could overload like a `UIViewController` instance to always have those delegate methods, subclassing could've been okay, but I went with just creating a banner and adding transitions because it made sense on a small project. Subclassing would've been easier in the end but I was too far down the rabbit hole with not enough time. So I looked up some examples of this and modified the idea to this one. Just using a transitioning delegate to present and dismiss it was the idea here. 
 
-### Dining mode banner
-The requirement for this one is pretty simple. Implementing a little bit less so :)
+Emoji's were used as button icons because I didn't have the time to go and download glyphicons or anything since a good portion of this was done on a plane with no wifi. But I think it worked out just fine. 
 
-- a banner should be displayed above the tab bar
-- tapping the banner expands the upcoming reservation view controller full screen
-- the banner can also be dragged interactively, and the upcoming reservation is visible while the banner is dragged (e.g. exactly what Apple Music does)
-- whichever tab is selected, the banner should be visible. If a controller gets presented modally, the banner should NOT be visible (matching the implicit real life analogy that modals slide "over" the main view)
+I made some choices for data transfer that weren't what I would do in real life but for a simple little project it worked plus it might be a good indicator that I know multiple ways of saving data. E.g. I sent data to the `SecondViewController` from the first `ViewController` via a notification. I was going to send it through the object field but I threw the type of file into `UserDefaults` because arguably that would be better anyway. I would read the filename from `UserDefaults` and then load it in as the `ReservationViewController` is going to be shown. 
 
-Here's a sample GIF from our current app: http://opentable.d.pr/aZ8Q/tdvdDsZ2
+I mostly stuck with a single storyboard instead of xibs or autolayout code. I threw in a few autolayout with visiual code examples just to exemplify it though. 
 
-### Dining mode
-This is a typical "mix and match" content driven screen, laying out "cards" vertically, where some of the content might not be available:
+## Wishes
+The darn `UITableView` stuff in the reservation view is my big wish. I have multiple scrolling delegates and it doesn't autosize. So I wouldn't publish this to the app store but it works and shows the textviews with the bolding. Since it had a max amount of items(3) I realized I could've switched this to be a stack view situation but when I started I was going to have the cells resize... well anyway. It's a wish. 
 
-- First card lists the restaurant name, the reservation time, the party size, and includes a picture of the restaurant
-- Second card lists the restaurant address, along with a map of the restaurant's address
-- Third card is the "best dishes" feature: an optional list of 1 to 3 dishes, along with a review snippet, where mentions of the dish are emphasized. Some ground rules about dishes:
-	* A dish has at least one photo, and exactly one snippet
-	* A snippet holds the full review, a range which indicates which part should be displayed, and a list of highlight ranges. All the ranges are relative to the full review (e.g. a highlight  at (197, 8) means "8 characters starting from the 197th character in the full review", regardless of which range of the review should be displayed).
-	* if the restaurant has no dishes, the card should not be shown
-	* if the restaurant has more than 3 dishes, only the first 3 should be shown
-	* each dish is guaranteed to have at least one picture, and one review snippet
-	* for each displayed snippet, we want to display: the photo, the dish name and the snippet along with its highlight. You're free to pick whatever method for the highlight (bold, color, underline etc.)
-- If you feel like it and have enough time (we all have a lot of free time, don't we? :), tapping anywhere in the card expands the card full screen. I'd also be perfectly happy with a simple explanation of how you'd implement this at a high level.
+Then animations to make the insertion or deleting of cells (example: look at the full reservation view, then switch it to the partial one and notice the jarring reloading animation with that third cell being deleted). Also loading url's could take some time and loading the reservation view needs a loader before the collectionview actually finishes. 
 
-Here's a sample GIF from our current app: http://opentable.d.pr/tgCj/5ohCOmky
+And I would've added testing as well.
 
-### General Instructions:
-- this isn't a visual design exercise, so you don't have to worry about that piece. Typically, if you want to set background colors to clearly differentiate the views when debugging, you can send your PR with those colors in.
-- I've included GIFs from our own app, for inspiration, but you don't have to follow that visual design
-- You'll find some code under Vendor/ – I've put basic domain objects in there, a reference JSON file, and assembler code to build up the domain object from the JSON object.
-- I do realize there's a *lot* in this exercise. If you can't wrap it all up (and you probably won't), prioritize things and let me know why you picked something over something else.
-- I've included a binary distro of AFNetworking for the image download part, feel free to use it. Or you can stick with raw NSURLSessions if you're more comfortable with that.
+## Testing
+ I just didn't have time for. Usually it would be good to have a unit tests and UI testing (especially this one with some crazy interactions) and multiple types of removeable cells and items within cells. There are also issues with error checking that I just omitted so I had enough to show. But that would be next. 
