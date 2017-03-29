@@ -1,4 +1,10 @@
-the rabbit hole with not enough time. So I looked up some examples of this and modified the idea to this one. Just using a transitioning delegate to present and dismiss it was the idea here. 
+# OpenTable Test
+This ws a little bit rough for me since I was out of town until Sunday afternoon and then I flew to Seattle Monday morning and then back tonight. But that gave me a few hours on a plane and a late night, but hopefully it does what was asked. 
+
+## Explanation
+So it's fairly self explanatory when you see the project. I made some choices that were hard to overcome since I was on such a little time crunch. This is also my 3rd take home test in 7 days. So things are becoming a little hazy since I have a full time job still. 
+
+On the other hand, I wasn't able to explain this in person so here we go. I've never tackled this sort of bottom banner type of thing before. I looked up different types of methods to do it; method swizzling so I could overload like a `UIViewController` instance to always have those delegate methods, subclassing could've been okay, but I went with just creating a banner and adding transitions because it made sense on a small project. Subclassing would've been easier in the end but I was too far down the rabbit hole with not enough time. So I looked up some examples of this and modified the idea to this one. Just using a transitioning delegate to present and dismiss it was the idea here. 
 
 Emoji's were used as button icons because I didn't have the time to go and download glyphicons or anything since a good portion of this was done on a plane with no wifi. But I think it worked out just fine. 
 
@@ -15,4 +21,3 @@ And I would've added testing as well.
 
 ## Testing
  I just didn't have time for. Usually it would be good to have a unit tests and UI testing (especially this one with some crazy interactions) and multiple types of removeable cells and items within cells. There are also issues with error checking that I just omitted so I had enough to show. But that would be next. 
-
