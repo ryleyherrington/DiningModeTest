@@ -21,6 +21,18 @@
 		009573361DF23288003412B9 /* AFNetworking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 009573331DF2327D003412B9 /* AFNetworking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		00EE09721DF24D160096F568 /* PartialReservation.json in Resources */ = {isa = PBXBuildFile; fileRef = 00EE09711DF24D160096F568 /* PartialReservation.json */; };
 		00EE09741DF24D520096F568 /* FullReservation.json in Resources */ = {isa = PBXBuildFile; fileRef = 00EE09731DF24D520096F568 /* FullReservation.json */; };
+		731E5FCA1E88CDC800698018 /* DateTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731E5FC91E88CDC800698018 /* DateTransformer.swift */; };
+		731E5FCC1E8965BE00698018 /* MapCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731E5FCB1E8965BE00698018 /* MapCell.swift */; };
+		731E5FCE1E8990C700698018 /* DishesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731E5FCD1E8990C700698018 /* DishesCell.swift */; };
+		731E5FD01E89981E00698018 /* DishTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731E5FCF1E89981E00698018 /* DishTableCell.swift */; };
+		731E5FD21E89C2CD00698018 /* TopReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731E5FD11E89C2CD00698018 /* TopReusableView.swift */; };
+		731E5FD41E8A2D3700698018 /* DishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731E5FD31E8A2D3700698018 /* DishViewController.swift */; };
+		731E5FD61E8AC60800698018 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731E5FD51E8AC60800698018 /* SecondViewController.swift */; };
+		73B236231E873419007EB47F /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B236221E873419007EB47F /* BannerView.swift */; };
+		73B236281E873D05007EB47F /* BannerTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B236271E873D05007EB47F /* BannerTransition.swift */; };
+		73B2362A1E873FF6007EB47F /* BannerAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B236291E873FF6007EB47F /* BannerAnimator.swift */; };
+		73B236391E885909007EB47F /* ReservationCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B236371E885909007EB47F /* ReservationCollectionViewController.swift */; };
+		73B236421E885A69007EB47F /* TitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B236411E885A69007EB47F /* TitleCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +86,18 @@
 		009573331DF2327D003412B9 /* AFNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AFNetworking.framework; sourceTree = "<group>"; };
 		00EE09711DF24D160096F568 /* PartialReservation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PartialReservation.json; sourceTree = "<group>"; };
 		00EE09731DF24D520096F568 /* FullReservation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = FullReservation.json; sourceTree = "<group>"; };
+		731E5FC91E88CDC800698018 /* DateTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTransformer.swift; sourceTree = "<group>"; };
+		731E5FCB1E8965BE00698018 /* MapCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapCell.swift; sourceTree = "<group>"; };
+		731E5FCD1E8990C700698018 /* DishesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DishesCell.swift; sourceTree = "<group>"; };
+		731E5FCF1E89981E00698018 /* DishTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DishTableCell.swift; sourceTree = "<group>"; };
+		731E5FD11E89C2CD00698018 /* TopReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopReusableView.swift; sourceTree = "<group>"; };
+		731E5FD31E8A2D3700698018 /* DishViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DishViewController.swift; sourceTree = "<group>"; };
+		731E5FD51E8AC60800698018 /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		73B236221E873419007EB47F /* BannerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannerView.swift; sourceTree = "<group>"; };
+		73B236271E873D05007EB47F /* BannerTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannerTransition.swift; sourceTree = "<group>"; };
+		73B236291E873FF6007EB47F /* BannerAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannerAnimator.swift; sourceTree = "<group>"; };
+		73B236371E885909007EB47F /* ReservationCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationCollectionViewController.swift; sourceTree = "<group>"; };
+		73B236411E885A69007EB47F /* TitleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,9 +150,11 @@
 		009572FA1DF2210E003412B9 /* DiningMode */ = {
 			isa = PBXGroup;
 			children = (
+				73B236261E873CC7007EB47F /* Animators */,
+				73B236211E8733FE007EB47F /* Views */,
+				73B236201E8733F7007EB47F /* ViewControllers */,
 				009573291DF22145003412B9 /* Vendor */,
 				009572FB1DF2210E003412B9 /* AppDelegate.swift */,
-				009572FD1DF2210E003412B9 /* ViewController.swift */,
 				009572FF1DF2210E003412B9 /* Main.storyboard */,
 				009573021DF2210E003412B9 /* Assets.xcassets */,
 				009573041DF2210E003412B9 /* LaunchScreen.storyboard */,
@@ -163,6 +189,7 @@
 				009573301DF2254C003412B9 /* 2dishes.json */,
 				00EE09731DF24D520096F568 /* FullReservation.json */,
 				00EE09711DF24D160096F568 /* PartialReservation.json */,
+				731E5FC91E88CDC800698018 /* DateTransformer.swift */,
 			);
 			name = Vendor;
 			sourceTree = "<group>";
@@ -173,6 +200,39 @@
 				009573331DF2327D003412B9 /* AFNetworking.framework */,
 			);
 			path = Frameworks;
+			sourceTree = "<group>";
+		};
+		73B236201E8733F7007EB47F /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				009572FD1DF2210E003412B9 /* ViewController.swift */,
+				73B236371E885909007EB47F /* ReservationCollectionViewController.swift */,
+				731E5FD31E8A2D3700698018 /* DishViewController.swift */,
+				731E5FD51E8AC60800698018 /* SecondViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		73B236211E8733FE007EB47F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				73B236221E873419007EB47F /* BannerView.swift */,
+				73B236411E885A69007EB47F /* TitleCell.swift */,
+				731E5FCB1E8965BE00698018 /* MapCell.swift */,
+				731E5FCD1E8990C700698018 /* DishesCell.swift */,
+				731E5FCF1E89981E00698018 /* DishTableCell.swift */,
+				731E5FD11E89C2CD00698018 /* TopReusableView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		73B236261E873CC7007EB47F /* Animators */ = {
+			isa = PBXGroup;
+			children = (
+				73B236271E873D05007EB47F /* BannerTransition.swift */,
+				73B236291E873FF6007EB47F /* BannerAnimator.swift */,
+			);
+			name = Animators;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,7 +304,7 @@
 				TargetAttributes = {
 					009572F71DF2210E003412B9 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = QPU8QS3E62;
+						DevelopmentTeam = 574WJ7QENW;
 						ProvisioningStyle = Automatic;
 					};
 					0095730B1DF2210E003412B9 = {
@@ -316,10 +376,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				731E5FD61E8AC60800698018 /* SecondViewController.swift in Sources */,
+				731E5FD01E89981E00698018 /* DishTableCell.swift in Sources */,
+				73B2362A1E873FF6007EB47F /* BannerAnimator.swift in Sources */,
+				731E5FCA1E88CDC800698018 /* DateTransformer.swift in Sources */,
+				731E5FCC1E8965BE00698018 /* MapCell.swift in Sources */,
+				73B236391E885909007EB47F /* ReservationCollectionViewController.swift in Sources */,
+				731E5FCE1E8990C700698018 /* DishesCell.swift in Sources */,
+				73B236231E873419007EB47F /* BannerView.swift in Sources */,
 				009572FE1DF2210E003412B9 /* ViewController.swift in Sources */,
+				731E5FD21E89C2CD00698018 /* TopReusableView.swift in Sources */,
 				009572FC1DF2210E003412B9 /* AppDelegate.swift in Sources */,
 				0095732B1DF22154003412B9 /* Reservation.swift in Sources */,
 				0095732F1DF2252F003412B9 /* ReservationAssembler.swift in Sources */,
+				73B236421E885A69007EB47F /* TitleCell.swift in Sources */,
+				73B236281E873D05007EB47F /* BannerTransition.swift in Sources */,
+				731E5FD41E8A2D3700698018 /* DishViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -473,7 +545,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = QPU8QS3E62;
+				DEVELOPMENT_TEAM = 574WJ7QENW;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
@@ -490,7 +562,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = QPU8QS3E62;
+				DEVELOPMENT_TEAM = 574WJ7QENW;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
